@@ -1531,6 +1531,10 @@ Prefab:
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 490468, guid: ffbb5b7cf5dddd742898cf1d1f9cde2d, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ffbb5b7cf5dddd742898cf1d1f9cde2d, type: 2}
   m_IsPrefabParent: 0
@@ -2291,6 +2295,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 494368, guid: fa17536ebcfda3749a480c4d22345b68, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fa17536ebcfda3749a480c4d22345b68, type: 2}
   m_IsPrefabParent: 0
@@ -2962,6 +2970,10 @@ Prefab:
     - target: {fileID: 494368, guid: fa17536ebcfda3749a480c4d22345b68, type: 2}
       propertyPath: m_RootOrder
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 21294368, guid: fa17536ebcfda3749a480c4d22345b68, type: 2}
+      propertyPath: m_FlipX
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fa17536ebcfda3749a480c4d22345b68, type: 2}
