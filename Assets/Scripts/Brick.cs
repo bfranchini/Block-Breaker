@@ -15,7 +15,7 @@ public class Brick : MonoBehaviour
 	
 	// Use this for initialization
 	void Start () {
-		isBreakable = (this.tag == "Breakable");
+        isBreakable = (tag == "Breakable" || tag == "1Up");
 		
 		//keep track of breakable bricks
 		if(isBreakable)		
@@ -31,12 +31,13 @@ public class Brick : MonoBehaviour
 	}
 	
 	void OnCollisionEnter2D(Collision2D coll)
-	{
-		//comment while testing			
-	//	AudioSource.PlayClipAtPoint(crack, transform.position);
-				 	
+	{				 	
 		if(isBreakable)
-			HandleHits();
+        {
+            //we want to spawn the audio source where the camera is so we can actually hear the clip playing
+            AudioSource.PlayClipAtPoint(crack, Camera.main.transform.position); 
+            HandleHits();
+        }			
 	}
 	
 	void HandleHits()
@@ -47,6 +48,12 @@ public class Brick : MonoBehaviour
 		if(timesHit >= maxHits)
 		{
 			breakableCount--;
+
+            if (tag == "1Up")
+                Player.CurrentLives++;
+
+            UI.UpdateLives(true);
+
 			levelManager.BrickDestroyed();
 			
 			generateSmoke();
@@ -66,7 +73,7 @@ public class Brick : MonoBehaviour
 		GameObject brickSmoke = (GameObject)Instantiate(smoke, transform.position,Quaternion.identity);
 		
 		//set color of smoke to match this brick's color
-		brickSmoke.GetComponent<ParticleSystem>().startColor = this.GetComponent<SpriteRenderer>().color;
+		brickSmoke.GetComponent<ParticleSystem>().startColor = GetComponent<SpriteRenderer>().color;
 	}
 	
 	void LoadSprites()
@@ -74,7 +81,7 @@ public class Brick : MonoBehaviour
 		var spriteIndex = timesHit - 1;
 		
 		if(hitSprites[spriteIndex] != null)
-			this.GetComponent<SpriteRenderer>().sprite = hitSprites[spriteIndex];			
+            GetComponent<SpriteRenderer>().sprite = hitSprites[spriteIndex];			
 		else
 			Debug.LogError("Brick Sprite is missing");
 	}

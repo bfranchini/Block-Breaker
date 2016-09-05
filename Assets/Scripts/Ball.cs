@@ -2,6 +2,8 @@
 using System.Collections;
 
 public class Ball : MonoBehaviour {
+    public AudioClip boing;
+    public AudioClip extraLife;
 
     //offset from center of paddle to make ball appear to be sitting on top of paddle.
     public static float BallPaddleYOffset =.363f;
@@ -43,7 +45,20 @@ public class Ball : MonoBehaviour {
 			
 		if(hasStarted)
 		{
-			GetComponent<AudioSource>().Play();
+            var audioSource = GetComponent<AudioSource>();
+
+            if (coll.gameObject.tag != "Breakable" && coll.gameObject.tag != "1Up")
+            {                
+                audioSource.clip = boing;
+                audioSource.Play();
+            }
+
+            if (coll.gameObject.tag == "1Up")
+            {
+                audioSource.clip = extraLife;
+                audioSource.Play();
+            }
+
 			GetComponent<Rigidbody2D>().velocity += tweak;	
 		}				
 	}

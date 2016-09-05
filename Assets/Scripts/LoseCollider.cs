@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class LoseCollider : MonoBehaviour
@@ -14,7 +15,7 @@ public class LoseCollider : MonoBehaviour
     {
         if (collider.tag == "Ball")
         {
-            Player.CurrentLives--;
+            Player.CurrentLives--;            
 
             print("Current lives: " + Player.CurrentLives);
 
@@ -25,8 +26,13 @@ public class LoseCollider : MonoBehaviour
 
                 FindObjectOfType<LevelManager>().LoadLevel("Lose");
             }
-
-            StartCoroutine(SpawnNewBall(collider));
+            //this else is needed because loading levels is slow. 
+            //Sound effect will begin to play and will get cut off if else is omitted. 
+            else
+            {
+                GetComponent<AudioSource>().Play();
+                StartCoroutine(SpawnNewBall(collider));
+            }
         }
         else
         {
@@ -37,7 +43,7 @@ public class LoseCollider : MonoBehaviour
 
     IEnumerator SpawnNewBall(Collider2D collider)
     {
-        //TODO: Play losing sound effect and wait for length of sound effect
+        //TODO: Play losing sound effect and wait for length of sound effect        
 
         yield return new WaitForSeconds(.5f);
         
@@ -51,5 +57,8 @@ public class LoseCollider : MonoBehaviour
 
         //destroy ball
         Destroy(collider.gameObject);
+
+        //update lives UI
+        UI.UpdateLives(false);    
     }
 }

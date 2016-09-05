@@ -27,7 +27,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 144636}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8, y: 0, z: 0}
+  m_LocalPosition: {x: 8, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -70,7 +70,7 @@ AudioSource:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 144636}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: fd062e81c78d7bc4da7d5d9c225f48dc, type: 3}
@@ -149,6 +149,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a7c394bcd5d78c4781c99143fea2e53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boing: {fileID: 8300000, guid: fd062e81c78d7bc4da7d5d9c225f48dc, type: 3}
+  extraLife: {fileID: 8300000, guid: 93da47bef7047ef45842f7382bc1623e, type: 3}
 --- !u!212 &21244636
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -175,7 +177,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ed7120687bd02de4e98aa421cb3ce59d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 35c24bb3a968f9641a7b22584db53784, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -56,7 +56,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2facbe512439bd44fb67b1587528575e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crack: {fileID: 8300000, guid: 575d23bd5c824554aad87e9449e79deb, type: 3}
+  crack: {fileID: 8300000, guid: 3039a0c0b6f835145966a07944c1d72e, type: 3}
   hitSprites: []
   smoke: {fileID: 183474, guid: 5f2b1c936df8a06449a3d5ae5098f40c, type: 2}
 --- !u!212 &21213982
